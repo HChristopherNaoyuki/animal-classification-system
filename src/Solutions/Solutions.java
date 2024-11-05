@@ -40,7 +40,7 @@ public class Solutions
     static class Bird extends Animal
     {
         // Variable
-        private int colour;
+        private int color;
 
         @Override
         public void input()
@@ -49,14 +49,15 @@ public class Solutions
             Scanner scanner = new Scanner(System.in);
             try {
                 System.out.print("""
-                                 Enter feather colour number: 
+                                 Enter feather color number: 
                                  1: Gray
                                  2: White 
                                  3: Black
+                                 Enter Choice: 
                                  """);
-                colour = scanner.nextInt();
+                color = scanner.nextInt();
             } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a valid colour number.");
+                System.out.println("Invalid input. Please enter a valid color number.");
                 scanner.nextLine(); // Clear the buffer in case of invalid input
             }
         } // End of input()
@@ -66,7 +67,7 @@ public class Solutions
         {
             super.output(); // Call the base class output method
             System.out.print("Color: ");
-            switch (colour)
+            switch (color)
             {
                 case 1 -> System.out.println("gray");
                 case 2 -> System.out.println("white");
