@@ -15,17 +15,23 @@ public class Solutions
         public void input()
         {
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter IDtag: ");
-            IDtag = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-            System.out.print("Enter species: ");
-            species = scanner.nextLine();
+            try {
+                System.out.print("Enter ID: ");
+                IDtag = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+
+                System.out.print("Enter species: ");
+                species = scanner.nextLine();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter valid data.");
+                scanner.nextLine(); // Clear the buffer in case of invalid input
+            }
         } // End of input()
 
         // Output method to display user entry
         public void output()
         {
-            System.out.println("IDtag: " + IDtag);
+            System.out.println("ID: " + IDtag);
             System.out.println("Species: " + species);
         } // End of output()
     } // End of Animal class
@@ -41,31 +47,31 @@ public class Solutions
         {
             super.input(); // Call the base class input method
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter feather colour number: "
-                             + "\n1-grey, "
-                             + "\n2-white, "
-                             + "\n3-black ");
-            colour = scanner.nextInt();
+            try {
+                System.out.print("""
+                                 Enter feather colour number: 
+                                 1: Gray
+                                 2: White 
+                                 3: Black
+                                 """);
+                colour = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid colour number.");
+                scanner.nextLine(); // Clear the buffer in case of invalid input
+            }
         } // End of input()
 
         @Override
         public void output()
         {
             super.output(); // Call the base class output method
-            System.out.print("Colour: ");
+            System.out.print("Color: ");
             switch (colour)
             {
-                case 1:
-                    System.out.println("grey");
-                    break;
-                case 2:
-                    System.out.println("white");
-                    break;
-                case 3:
-                    System.out.println("black");
-                    break;
-                default:
-                    System.out.println("invalid");
+                case 1 -> System.out.println("gray");
+                case 2 -> System.out.println("white");
+                case 3 -> System.out.println("black");
+                default -> System.out.println("invalid");
             } // End of switch case
         } // End of output()
     } // End of Bird class
@@ -81,8 +87,13 @@ public class Solutions
         {
             super.input(); // Call the base class input method
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Please enter the blood temperature: ");
-            bloodTemp = scanner.nextDouble();
+            try {
+                System.out.print("Please enter the blood temperature: ");
+                bloodTemp = scanner.nextDouble();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid blood temperature.");
+                scanner.nextLine(); // Clear the buffer in case of invalid input
+            }
         } // End of input()
 
         @Override
